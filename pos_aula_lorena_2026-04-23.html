@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Lorena — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Can / can’t, everyday conversation e roleplay</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Lorena &nbsp;•&nbsp;
+            <strong>Data:</strong> 23/04/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Resumo da aula sobre can / can’t, habilidades, leitura em diálogo, vocabulário de resfriado e expressões do cotidiano.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Nesta aula, o foco principal foi a estrutura <strong>can / can’t</strong> para falar sobre habilidades e capacidades. Vocês praticaram perguntas e respostas simples com ações do cotidiano e hobbies, como <em>dance</em>, <em>play the piano</em>, <em>paint</em>, <em>play guitar</em>, <em>drive</em>, <em>cook</em>, <em>swim</em> e <em>play tennis</em>. A ideia foi reforçar a diferença entre responder de forma curta e também formar frases completas, como <em>I can dance</em> ou <em>I can’t drive</em>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Depois dessa primeira parte, a aula passou para um <strong>diálogo em inglês</strong> com leitura guiada. Antes da leitura, o professor trabalhou vocabulário importante do texto, como <em>after such a long time</em>, <em>bless you</em>, <em>awful</em>, <em>a cold</em>, <em>nap</em>, <em>advice</em>, <em>take care</em> e <em>what are you up to?</em>. Isso ajudou a deixar o contexto mais claro antes da encenação.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Em seguida, vocês fizeram uma espécie de <strong>roleplay</strong>, em que cada um assumiu o papel de um personagem do diálogo. Essa parte serviu para treinar leitura em voz alta, entonação, compreensão do contexto e naturalidade em frases comuns de conversa. Também apareceu um momento mais leve e divertido com a tentativa de reproduzir o som do espirro em inglês, junto da resposta <em>bless you</em>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Depois da leitura, vieram perguntas de <strong>compreensão</strong> sobre o texto. O professor explorou expressões como <em>enough about me</em>, <em>what are you up to?</em> e <em>I’m sorry to hear that</em>, mostrando não só a tradução, mas principalmente o uso real dessas expressões em conversas naturais.
+            </p>
+            <p style="margin:0;">
+              Na parte final, vocês fizeram uma <strong>tradução guiada</strong> do diálogo para o português. O professor chamou atenção para alguns pontos importantes de significado, especialmente <em>actually</em>, que não significa “atualmente”, mas sim <em>na verdade</em>. A aula terminou com a orientação de praticar a leitura do pós-aula durante a semana.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>What are you up to?</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) O que você anda fazendo?</em><br>
+                <small>Hey, what are you up to these days?</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>Actually</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) na verdade</em><br>
+                <small>Actually, I’m not working right now.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Habilidades com can / can’t</h3>
+            <ul>
+              <li><strong>dance</strong> – dançar</li>
+              <li><strong>play the piano</strong> – tocar piano</li>
+              <li><strong>paint</strong> – pintar</li>
+              <li><strong>play guitar</strong> – tocar violão / guitarra</li>
+              <li><strong>drive</strong> – dirigir</li>
+              <li><strong>cook</strong> – cozinhar</li>
+              <li><strong>swim</strong> – nadar</li>
+              <li><strong>play tennis</strong> – jogar tênis</li>
+              <li><strong>biscuit</strong> – biscoito / bolacha</li>
+              <li><strong>sweet</strong> – doce</li>
+            </ul>
+
+            <h3>Vocabulário do diálogo</h3>
+            <ul>
+              <li><strong>after such a long time</strong> – depois de tanto tempo</li>
+              <li><strong>bless you</strong> – saúde! (dito após alguém espirrar)</li>
+              <li><strong>awful</strong> – péssimo / horrível</li>
+              <li><strong>cold</strong> – resfriado</li>
+              <li><strong>how’s Ben doing?</strong> – como o Ben está?</li>
+              <li><strong>talented kid</strong> – criança talentosa</li>
+              <li><strong>what are you up to?</strong> – o que você anda fazendo?</li>
+              <li><strong>memory</strong> – memória</li>
+              <li><strong>on leave</strong> – de licença / afastado(a)</li>
+              <li><strong>fruit / fruits</strong> – fruta / frutas</li>
+              <li><strong>orange</strong> – laranja</li>
+              <li><strong>juice</strong> – suco</li>
+              <li><strong>nap</strong> – soneca</li>
+              <li><strong>advice</strong> – conselho</li>
+              <li><strong>take care</strong> – se cuida / cuide-se</li>
+              <li><strong>feel better</strong> – melhorar / sentir-se melhor</li>
+            </ul>
+
+            <h3>Expressões e compreensão</h3>
+            <ul>
+              <li><strong>enough about me</strong> – já falei demais de mim / chega de mim</li>
+              <li><strong>I’m sorry to hear that</strong> – sinto muito por ouvir isso</li>
+              <li><strong>actually</strong> – na verdade</li>
+              <li><strong>still at Miller Industries?</strong> – ainda na Miller Industries?</li>
+              <li><strong>that is why</strong> – é por isso que...</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>I can dance.</li>
+              <li>I can play the piano.</li>
+              <li>I can paint.</li>
+              <li>I can’t drive.</li>
+              <li>I can cook.</li>
+              <li>I can swim.</li>
+              <li>I can play tennis.</li>
+              <li>What do you like to cook?</li>
+              <li>Carol, nice to see you after such a long time.</li>
+              <li>Bless you.</li>
+              <li>I feel awful.</li>
+              <li>How’s Ben doing?</li>
+              <li>What are you up to?</li>
+              <li>That’s good advice.</li>
+              <li>Take care and feel better.</li>
+              <li>I’m sorry to hear that.</li>
+              <li>Actually, I’m not working right now.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>I can x I can’t:</strong> no começo da aula, houve uma confusão entre afirmar e negar habilidades. O professor reforçou quando usar <em>I can</em> e quando usar <em>I can’t</em>.</li>
+              <li><strong>Can + verbo base:</strong> as estruturas com <em>can</em> foram praticadas sempre com o verbo sem alteração, como <em>can dance</em>, <em>can cook</em> e <em>can swim</em>.</li>
+              <li><strong>Biscuit:</strong> ao falar de comida, apareceu a correção de <em>biscuit</em> como palavra mais adequada para biscoito / bolacha nesse contexto.</li>
+              <li><strong>Bless you:</strong> foi explicado como a expressão usada quando alguém espirra, equivalente a “saúde”.</li>
+              <li><strong>Awful:</strong> revisado com o sentido de “muito ruim / péssimo”.</li>
+              <li><strong>Nap:</strong> reforçado como “soneca”.</li>
+              <li><strong>Advice:</strong> trabalhado como “conselho”, e não como verbo.</li>
+              <li><strong>Take care:</strong> o professor chamou atenção para a junção natural dos sons em <em>take care</em>, para evitar pronunciar de forma muito separada.</li>
+              <li><strong>What are you up to?</strong> foi explicado como algo mais natural do que tradução literal, com sentido de “o que você anda fazendo?” ou “o que tem rolado na sua vida?”.</li>
+              <li><strong>Enough about me:</strong> foi mostrado como uma forma de encerrar o assunto sobre si mesmo e mudar o foco da conversa.</li>
+              <li><strong>I’m sorry to hear that:</strong> a expressão foi explicada como “sinto muito por ouvir isso”, e não uma tradução palavra por palavra.</li>
+              <li><strong>Actually:</strong> o professor destacou no final da aula que <em>actually</em> não significa “atualmente”. O sentido correto no diálogo era <strong>na verdade</strong>.</li>
+              <li><strong>Leitura e contexto:</strong> em alguns trechos, a compreensão veio mais pelo contexto do diálogo do que pela tradução exata palavra por palavra, e o professor chamou atenção para isso.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+            <a
+              class="media-btn"
+              href="https://youtu.be/nNdb0gl0Su8"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">74%</span></td>
+                <td class="talk-time">~37 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Lorena</span></td>
+                <td><span class="talk-percent">26%</span></td>
+                <td class="talk-time">~13 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Lembrar de ler o pós-aula de 2 a 3x na semana.</li>
+            </ul>
+            <p style="margin:6px 0 0 0;">
+              <a
+                href="https://babadum.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn secondary"
+                style="padding:8px 12px;border-radius:8px;font-weight:700;"
+              >
+                🎮 Abrir tarefa de casa (Babadum)
+              </a>
+            </p>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
